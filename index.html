@@ -5,50 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #content {
-            width: 70%;
-            margin: auto;
-            background-color: lavender;
-        }
-        .innerContent {
+        body{
             background-color: coral;
-            border: 2px solid black;
-            width: 40%;
-            margin: 10px auto;
-            justify-content: space-evenly;
+        }
+        h1 {
             text-align: center;
         }
-        .bigBox {
-            display: flex;
+        #content {
+            background-color: bisque;
+            margin: auto;
+            width: 75%;
+            padding: 10px;
+            border-radius: 10px;
         }
-        .innerContent img {
-            width: 100%;
-            object-fit: contain;
+        #bigContainer {
+            background-color: rgb(255, 195, 121);
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #smallContainer {
+           width: 40%;
+        }
+        .smallBox {
+            background-color: white;
+            padding: 5px;
+            margin: 10px;
+            text-align: justify;
+        }
+        .bigBox {
+            background-color: white;
+            padding: 5px; 
+            margin: 10px;
+            width: 40%;
+            text-align: justify;
+        }
+        .allBoxes {
+            border: 2px solid black;
+            box-shadow: 5px 5px 1px black;
         }
     </style>
 </head>
 <body>
     <div id="content">
-        <h1 style="text-align: center;">Yippee</h1>
-        <div class="bigBox">
-            <div class="innerContent">
-                <h2>About Me</h2>
-                <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium natus similique, est possimus deserunt id aperiam impedit explicabo, minima quis unde sapiente earum, repellendus quaerat debitis. Molestias ut iste est.</p>
+        <h1>Header</h1>
+        <div id="bigContainer">
+            <div id="smallContainer">
+                <div class="smallBox allBoxes">
+                    <h2>About</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore delectus, repellat dolores atque deleniti doloremque accusamus nesciunt sit facilis accusantium ab totam nemo saepe? Autem optio rerum similique nam numquam.</p>
+                </div>
+                <div class="smallBox allBoxes">
+                    <h2>Game</h2>
+                    <p>Click <a href="game/index.html" target="blank">here</a> to play!</p>
+                </div>
+                <div class="smallBox allBoxes">
+                    <h2>Images</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum eius, commodi ex, neque doloribus aut vitae laboriosam aliquam veritatis praesentium doloremque cupiditate quis perspiciatis ipsam architecto! Minus adipisci amet iste!</p>
+                </div>
             </div>
-            <div class="innerContent">
-                <h2>My Game</h2>
-                <p>Click <a href="game/index.html" target="blank">here</a> to play my game!</p>
+            <div class="bigBox allBoxes">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis consequuntur id quae odio? Optio ad magni possimus, modi nesciunt voluptatibus suscipit itaque hic tempora sequi rerum aliquam, dolor unde pariatur.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, nulla dolore. Totam modi fuga, molestias veritatis eius atque quidem mollitia id repellendus consequuntur dolorem dolor incidunt sit aut harum ullam.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, distinctio molestias laboriosam, similique perferendis facilis ab quibusdam neque omnis sint quisquam incidunt possimus ducimus accusamus obcaecati ipsum aperiam, eos alias!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis consequuntur id quae odio? Optio ad magni possimus, modi nesciunt voluptatibus suscipit itaque hic tempora sequi rerum aliquam, dolor unde pariatur.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, nulla dolore. Totam modi fuga, molestias veritatis eius atque quidem mollitia id repellendus consequuntur dolorem dolor incidunt sit aut harum ullam.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, distinctio molestias laboriosam, similique perferendis facilis ab quibusdam neque omnis sint quisquam incidunt possimus ducimus accusamus obcaecati ipsum aperiam, eos alias!</p>
             </div>
         </div>
-        <div class="bigBox">
-            <div class="innerContent">
-                <h2>Good Pic</h2>
-                <img src="img/Capture.PNG" style="transform: scaleX(-1);">
-            </div>
-            <div class="innerContent">
-                <h2>Evil Pic</h2>
-                <img src="img/Capture.PNG" style="filter: invert(1);">
-            </div>
     </div>
 </body>
 </html>
