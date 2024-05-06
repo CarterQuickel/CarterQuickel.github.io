@@ -1,79 +1,510 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            background-color: coral;
-        }
-        h1 {
-            text-align: center;
-        }
-        #content {
-            background-color: bisque;
-            margin: auto;
-            width: 75%;
-            padding: 10px;
-            border-radius: 10px;
-        }
-        #bigContainer {
-            background-color: rgb(255, 195, 121);
-            display: flex;
-            justify-content: space-evenly;
-            padding: 10px;
-            border-radius: 10px;
-        }
-        #smallContainer {
-           width: 40%;
-        }
-        .smallBox {
-            background-color: white;
-            padding: 5px;
-            margin: 10px;
-            text-align: justify;
-        }
-        .bigBox {
-            background-color: white;
-            padding: 5px; 
-            margin: 10px;
-            width: 40%;
-            text-align: justify;
-        }
-        .allBoxes {
-            border: 2px solid black;
-            box-shadow: 5px 5px 1px black;
-        }
-    </style>
-</head>
-<body>
-    <div id="content">
-        <h1>Header</h1>
-        <div id="bigContainer">
-            <div id="smallContainer">
-                <div class="smallBox allBoxes">
-                    <h2>About</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore delectus, repellat dolores atque deleniti doloremque accusamus nesciunt sit facilis accusantium ab totam nemo saepe? Autem optio rerum similique nam numquam.</p>
+<html>
+    <head>
+        <title>Get to School 5</title>
+        <style>
+            body {
+                background-image: url("img/HouseIMG.PNG");
+                background-size: 100%;
+            }
+            h1 {
+                text-align: center;
+                font-family: 'Courier New', Courier, monospace;
+                color: white;
+                text-shadow: 1px 1px 10px black;
+                margin-top: 50px;
+                font-size: 50px;
+            }
+            ul {
+                padding: 5px 25px 5px 5px;
+                margin: 0px 10px 0px 10px;
+                border: 2px solid gray;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                background-color: darkgray;
+                display: flex;
+                flex-flow: row;
+                position: fixed;
+                top: 0;
+                z-index: 5;
+            }
+            #links {
+                display: flex;
+                justify-content: center;
+            }
+            li {
+                justify-content: space-between;
+                margin-left: 20px;
+                margin-right: 20px;
+                color: darkgray;
+            }
+            #whatIsIt {
+                margin: 0px 10px 30px 10px;
+                border: 2px solid black;
+                padding: 5px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: white;
+            }
+            #whatIsIt h2 {
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 30px;
+                text-align: center;
+            }
+            #ultrahandIMG {
+                float: left;
+            }
+            #synopsis {
+                border: 2px solid black;
+                margin: 0px 10px 30px 10px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 20px;
+                padding-top: 5px;
+                background-color: white;
+            }
+            #abilities {
+                border: 2px solid black;
+                margin: 0px 10px 30px 10px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 20px;
+                padding-top: 5px;
+                background-color: white;
+            }
+            #abilities h2 {
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                font-size: 30px;
+            }
+            .dropbtn {
+                background-color: purple;
+                color: white;
+                padding: 16px;
+                font-size: 20px;
+                border: 2px solid black;
+            }
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: white;
+                min-width: 400px;
+                box-shadow: 0px 8px 16px 0px;
+                z-index: 1;
+            }
+            .dropdown-content p {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            .dropdown:hover .dropdown-content {display: block;}
+
+            .dropdown:hover .dropbtn {background-color: palevioletred;}
+
+            #synopsis h2 {
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                font-size: 30px;
+            }
+            p {
+                text-align: justify;
+            }
+            #bigBox {
+                display: flex;
+                justify-content: space-evenly;
+            }
+            .abilityInfo {
+                background-color: rgb(233, 233, 233);
+                margin: 10px;
+                margin-bottom: 10px;
+                border: 2px solid black;
+                padding: 5px;
+                padding-right: 50px;
+            }
+            .abilityInfo img{
+                float: left;
+                padding-top: 10px;
+            }
+            .abilityInfo h3 {
+                text-align: left;
+            }
+            .abilityBox {
+                display: flex;
+                flex-flow: row;
+            }
+            #characters {
+                border: 2px solid black;
+                margin: 0px 10px 30px 10px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 20px;
+                padding-top: 5px;
+                background-color: white;
+            }
+            #characters h2 {
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                font-size: 30px;
+            }
+            #world {
+                border: 2px solid black;
+                margin: 0px 10px 30px 10px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 20px;
+                padding-top: 5px;
+                background-color: white;
+            }
+            #world h2 {
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                font-size: 30px;
+            }
+            #contentBox {
+                padding: 20px;
+                background-color: rgb(233, 233, 233);
+            }
+            #invBox {
+                display: flex;
+                flex-flow: row;
+            }
+            h3 {
+                font-family: 'Courier New', Courier, monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Get to School 5</h1>
+        <!-- left hand links box -->
+        <div id="links">
+            <ul>
+                <li>
+                    <a href="#synopsis"><strong>Synopsis</strong></a>
+                </li>
+                <li>
+                    <a href="#abilities"><strong>Abilities</strong></a>
+                </li>
+                <li>
+                    <a href="#characters"><strong>Characters</strong></a>
+                </li>
+                <li>
+                    <a href="#world"><strong>World</strong></a>
+                </li>
+                <li>
+                    <a href="about.html"><strong>About</strong></a>
+                </li>
+                <li>
+                    <strong><a href="game/index.html" target="blank"> Play</a></strong>
+                </li>
+            </ul>
+        </div>
+            <!-- first paragraph block -->
+                <div id="whatIsIt">
+                    <h2>What is Get to School 5?</h2>
+                    <p>
+                    Get to School 5 is a RPG that explores many dreams-come-to-life realms. 
+                    There are many areas, dungeons, and realms to explore! 
+                    Come join Caryn as he wakes up in a dream world, trying to stop the principal from ruling the Dream Lands.
+                    Will you free the forever-suffering servants, or will you become the very thing you swore to destroy?
+                    </p>
                 </div>
-                <div class="smallBox allBoxes">
-                    <h2>Game</h2>
-                    <p>Click <a href="game/index.html" target="blank">here</a> to play!</p>
-                </div>
-                <div class="smallBox allBoxes">
-                    <h2>Images</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum eius, commodi ex, neque doloribus aut vitae laboriosam aliquam veritatis praesentium doloremque cupiditate quis perspiciatis ipsam architecto! Minus adipisci amet iste!</p>
+        <div id="synopsis">
+            <h2>Synopsis</h2>
+            <div id="bigBox">
+            <div class="dropdown">
+                <button class="dropbtn"><strong>The Awakening</strong></button>
+                <div class="dropdown-content">
+                    <p>
+                        Caryn is a high school student who, one day, got very tired. He went to bed and woke up the next morning in a much stranger home.
+                        He heads outside to find himself in the Forest of Redeemers. This place was where a great war was once held against the principal.
+                        Caryn, confused of where he is, heads south to a dungeon where the Heart of the Forest rests. 
+                        Its goal is to protect others from entering the Infected Forest, where none dare face the monsters that thirst blood.
+                        Caryn resists and continues into the forest still.
+                    </p>
                 </div>
             </div>
-            <div class="bigBox allBoxes">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis consequuntur id quae odio? Optio ad magni possimus, modi nesciunt voluptatibus suscipit itaque hic tempora sequi rerum aliquam, dolor unde pariatur.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, nulla dolore. Totam modi fuga, molestias veritatis eius atque quidem mollitia id repellendus consequuntur dolorem dolor incidunt sit aut harum ullam.</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, distinctio molestias laboriosam, similique perferendis facilis ab quibusdam neque omnis sint quisquam incidunt possimus ducimus accusamus obcaecati ipsum aperiam, eos alias!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis consequuntur id quae odio? Optio ad magni possimus, modi nesciunt voluptatibus suscipit itaque hic tempora sequi rerum aliquam, dolor unde pariatur.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, nulla dolore. Totam modi fuga, molestias veritatis eius atque quidem mollitia id repellendus consequuntur dolorem dolor incidunt sit aut harum ullam.</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, distinctio molestias laboriosam, similique perferendis facilis ab quibusdam neque omnis sint quisquam incidunt possimus ducimus accusamus obcaecati ipsum aperiam, eos alias!</p>
+            <div class="dropdown">
+                <button class="dropbtn"><strong>Infected Forest</strong></button>
+                <div class="dropdown-content">
+                    <p>
+                    He meets a new foe, a dreamer who attempted the save the realms. 
+                    The dreamer tells Caryn that it's impossibe to undo such suffering, but he is made quick work of.
+                    Caryn enters a fortress that is protected from infection, and he finally meets Ratchet, a mechanic and a narcissist.
+                    Caryn is built the Power Bracelet to finally enter Boulder Pass, where Caryn meets Jasper. 
+                    </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><strong>New Found Power</strong></button>
+                <div class="dropdown-content">
+                    <p>
+                    Jasper is also a high schooler who got trapped in Boulder Pass trying to escape the nightmares around him. 
+                    He hid in a cavern he made his own, who finally got rescued by Caryn.
+                    The both of them eventually reach the dungeon in Boulder Pass.
+                    Caryn finds a still power-contained corpse. He touches it, and he quickly turns into a much more powerful version of himself.
+                    Turns out that the corpse was that of an ancient dreamer who had great power, and now Caryn possesses it.
+                    Jasper and the now Powerful Dreamer Caryn encounter the Realm Seperator, who is in charge of keeping the realms between monsters and heroes divided.
+                    They fight to the death and Caryn and Jasper are victorious, and with their new powers, they head to the Sorrow Realms.
+                    </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><strong>The Sorrow Realms</strong></button>
+                <div class="dropdown-content">
+                <p>
+                    The Sorrow Realms are mountainous lakes that are meant to hold dead dreamers. 
+                    These dreamers, here, are then converted into nightmares, which are quickly released to go gather other dreamers.
+                    Jasper and Caryn meet Arthur, a kid who had stumbled upon the Sorrow Realms before the Realm Seperator was given her role.
+                    Arthur says that he can talk to the many dead souls of dreamers. 
+                    He explains that nightmares that are killed are still sent to the Sorrow Realms, but are then tranformed into extraterrestial beings.
+                    They no longer serve a purpose and are forgotten forever.
+                </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><strong>Death of the Catalyst</strong></button>
+                <div class="dropdown-content">
+                <p>
+                    The trio make it through the Sorrow Realms and enter the Underground Tundras, which is a secret hiding place for the nightmare catalyst.
+                    Caryn finally learns what the nightmares truly are and what they once were, and he begins to question his own power.
+                    They destroy the catalyst and are sent to Puresong Valley, a deserted wasteland outside of Everdream.
+                    The people here, with the nightmare catalyst killed, have nowhere to go, so they continue to roam the lands looking for blood.
+                    The trio find Butterdog, a mysterious dog that seems to be alone on his own.
+                </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><strong>Royal Recall</strong></button>
+                <div class="dropdown-content">  
+                <p>
+                    The four make it to the outer courtyard of Everdream and they gain different royal brands to allow for their passing.
+                    Royal blood now surges in their veins, and they discover the Prince's Archives, a place where Caryn and the others can refight nightmares.
+                    This place was where the prince kept hold of the nightmares, as he didn't want his father's people to be harmed by such dangerous creatures.
+                    The four finally make it to Everdream, where the higher class of civilians live. 
+                    They uncover the parts to fix the castle bridge and head to Everdream Palace where the king awaits.
+                </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><strong>The King's End</strong></button>
+                <div class="dropdown-content">  
+                <p>
+                    Caryn and the others encounter the king's knight (a nightmare of the king's), and the princess.
+                    Then, upon the rooftops of Everdream Palace, the king awaits, who Caryn learns is the ruler of the nightmares who has been working for the principal.
+                    The principal has been behind it all, causing the infection and the chaos in the realms.
+                    With the king out of the way, the four head to the school, past the many siren-like students, and find themselves face to face with the principal himself.
+                </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><strong>The Final Dance</strong></button>
+                <div class="dropdown-content">  
+                <p>
+                    The principal is infected by a magic skull half-mask upon his face, which holds too much evil power for one man to have.
+                    When the principal faces the four heroes, his mask adds a layer of extra protection, becoming whole again.
+                    Seemingly too easy, Caryn and the others return to the kingdom and find a crystal, which supposedly contains the principal's anger and hatred.
+                    Jumping inside, they find themselves face-to-face against the infection itself. 
+                    They take down and destroy the infection once and for all, freeing the realms so every kid's next dreams will be nothing but happy ones.
+                    Caryn wakes up, realizing, once again, that he has to get to school.
+                    Will you unlock the true ending?
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+    <div id="abilities">
+        <h2>Abilities</h2>
+            <div class="abilityBox">
+                <div class="abilityInfo">
+                    <img src="img/LFFIMG.PNG">
+                    <h3>Light-Fall Feather/Twist-Up Feather</h3>
+                    <p>Both feathers help improve mobility. The Light-fall mitigates fall damage and Twist-Up improves jump height. They both synergize together.</p>
+                </div>
+                <div class="abilityInfo">
+                    <img src="img/PowerBraceletIMG.PNG">
+                    <h3>Power Bracelet</h3>
+                    <p>This was created by Ratchet yet still wields immense power. You can move small boulders with this.</p>
+                </div>
+                <div class="abilityInfo">
+                    <img src="img/RealmSCIMG.PNG">
+                    <h3>Realm Seperator's Scythe</h3>
+                    <p>A powerful item used to keep realms divided. When obtained, that barrier between realms can be broken.</p>
+                </div>
+            </div>
+            <div class="abilityBox">
+                <div class="abilityInfo">
+                    <img src="img/WWGIMG.PNG">
+                    <h3>Winter-Warm Gloves</h3>
+                    <p>These gloves can help to touch snowballs in the Underground Tundra. They were once worn by Mr. Jacobs himself.</p>
+                </div>
+                <div class="abilityInfo">
+                    <img src="img/UnlimitedPowerBandIMG.PNG">
+                    <h3>Unlimited Power Band</h3>
+                    <p>This band was granted by a powerful dreamer in the Boulder Pass. It grants strength and worthiness, allowing Caryn to pick up Demonic Orbs.</p>
+                </div>
+                <div class="abilityInfo">
+                    <img src="img/BrandsIMG.PNG">
+                    <h3>Royal Marks</h3>
+                    <p>The markings of the royal family that allows for passing into Everdream. Only the richest may enter the kingdom, and Caryn now possesses that blood.</p>
+                </div>
+            </div>
+    </div>
+    <div id="characters">
+        <h2>Characters</h2>
+        <div id="bigBox">
+            <div class="dropdown">
+                <button class="dropbtn"><img src="img/CarynPFP.PNG"></button>
+                <div class="dropdown-content">
+                    <p>
+                        <strong>Caryn</strong> is a selected dreamer to save the Dream Lands. He lived a normal life, going to school each passing day.
+                        But the day he woke up in a new realm, his fate was determined and his destiny was defined.
+                        <br>
+                        <strong>Strength:</strong> 4
+                        <br>
+                        <strong>Health:</strong> 3
+                        <br>
+                        <strong>Intelligence:</strong> 5
+                    </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="img/JasperPFP.PNG"></button>
+                <div class="dropdown-content">
+                    <p>
+                        <strong>Jasper</strong> is Caryn's partner in saving the Dream Lands. He was a high school student who struggled to fit in.
+                        When he went to sleep one night and had a very strange dream, it seemed to come to life.
+                        <br>
+                        <strong>Strength:</strong> 3
+                        <br>
+                        <strong>Health:</strong> 3
+                        <br>
+                        <strong>Intelligence:</strong> 4
+                    </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="img/ArthurPFP.PNG"></button>
+                <div class="dropdown-content">
+                    <p>
+                        <strong>Arthur</strong> doesn't remember his past. 
+                        He only recalls being cast away to the Sorrow Realms, living his life communicating with the whispers of the dead.
+                        He joins Caryn and Jasper late into their quest.
+                        <br>
+                        <strong>Strength:</strong> 3
+                        <br>
+                        <strong>Health:</strong> 5
+                        <br>
+                        <strong>Intelligence:</strong> 3
+                    </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="img/ButterDogPFP.PNG"></button>
+                <div class="dropdown-content">
+                    <p>
+                        <strong>Butterdog</strong> is a dog with butter on his head. 
+                        It's unknown how he ended up in the Dream Lands, but it's aid that his life goal is to heal those that need it to make up for his owner's death.
+                        <br>
+                        <strong>Strength:</strong> 2
+                        <br>
+                        <strong>Health:</strong> 5
+                        <br>
+                        <strong>Intelligence:</strong> 1
+                    </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="img/KingPFP.PNG"></button>
+                <div class="dropdown-content">
+                    <p>
+                        <strong>The King</strong> is in control of Everdream Kingdom. 
+                        He takes orders from the principal and assists in maintaining power and control.
+                        His children and closest workers are all his nightmares from harsh punishment. 
+                        He hopes that, one day, his suffering wil end.
+                        <br>
+                        <strong>Strength:</strong> 4
+                        <br>
+                        <strong>Health:</strong> 5
+                        <br>
+                        <strong>Intelligence:</strong> 4
+                    </p>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="img/PrincipalPFP.PNG"></button>
+                <div class="dropdown-content">
+                    <p>
+                        <strong>The Principal</strong> controls the infection and outputs orders to the king.
+                        He wears a half-mask that keeps him insane, which, when broken, reveals the true form of the source behind the suffering.
+                        <br>
+                        <strong>Strength:</strong> 4
+                        <br>
+                        <strong>Health:</strong> 5
+                        <br>
+                        <strong>Intelligence:</strong> 5
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</body>
+    <div id="world">
+        <h2>World</h2>
+        <div id="invBox">
+        <img src="img/MapLayout.PNG">
+            <div id="contentBox">
+                <h3><u>Forest of Redeemers</u></h3>
+                <p>
+                    The forest where the Great War aginst the infection and the civilians took place.
+                    The small village still shows remnants of the battle.
+                    <br>
+                    <strong>Found Items:</strong> Shovel; Light-Fall Feather
+                </p>
+                <h3><u>Infected Forest</u></h3>
+                <p>
+                    The forest where the infection spreads the strongest. 
+                    It contains a fortress that hosts a majority of the war generals that survived the Great War.
+                    <br>
+                    <strong>Found Items:</strong> Dreamer's Cleaver; Fungal Protection; Power Bracelet
+                </p>
+                <h3><u>Boulder Pass</u></h3>
+                <p>
+                    An ancient, underground mountain range. It holds either captives of the surface fortress or runaways.
+                    <br>
+                    <strong>Found Items:</strong> Superpower Bracelet; Unlimited Power Band; Realm Seperator's Scythe
+                </p>
+                <h3><u>The Sorrow Realms</u></h3>
+                <p>
+                    The junkyard for deceased nightmares. Dead civilians enter and are transformed by the Nightmare Summoner. 
+                    Dead nightmares are forever trapped until a true form is created.
+                    <br>
+                    <strong>Found Items:</strong> NONE
+                </p>
+                <h3><u>Underground Tundra</u></h3>
+                <p>
+                    The hidden workplace of the Nightmare Summoner. Those who enter assume the place is an innocent family yard.
+                    <br>
+                    <strong>Found Items:</strong> Winter-Warm Gloves; Ice Pickaxe
+                </p>
+                <h3><u>Puresong Valley</u></h3>
+                <p>
+                    The barren courtyard of Everdream. With the Nightmare Summoner gone, only dead untransformed civilians roam the plains. 
+                    It also hosts the hidden Prince's Archives.
+                    <br>
+                    <strong>Found Items:</strong> Prince's Mark; Queen's Mark; King's Mark
+                </p>
+                <h3><u>Forest of Lost Redeemers</u></h3>
+                <p>
+                    A large outpost used during the Great War. It's only barren now with remnants of the Jester's flanks during the war.
+                    <br>
+                    <strong>Found Items:</strong> Twist-Up Feather
+                </p>
+                <h3><u>Everdream</u></h3>
+                <p>
+                    The full kingdom where the rich thrive. It holds the king and the school, which holds the infection.
+                    <br>
+                    <strong>Found Items:</strong> Map; Janitor's Music Box; Pure Injector
+                </p>
+            </div>
+        </div>
+    </div>
+    </body>
 </html>
